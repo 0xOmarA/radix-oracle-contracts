@@ -324,6 +324,31 @@ mod morpher_oracle {
             price_message
         }
 
+        pub fn check_prices_input(
+            &mut self,
+            message: String,
+            signature: String,
+        ) -> Vec<PriceMessage> {
+
+            check_signature(&message, &signature, self.authorized_pub_key);
+
+            // Split the message into individual PriceMessages assuming they are separated by commas
+            let messages: Vec<&str> = message.split(',').collect();
+            let mut price_messages = Vec::new();
+
+            for msg in messages {
+                let price_message = PriceMessage::from_str(msg).unwrap();
+                // Check that the nonce has not been used
+                assert!(
+                    self.used_nonce.insert(price_message.nonce),
+                    "This nonce has already been used"
+                );
+                price_messages.push(price_message);
+            }
+
+            price_messages
+        }
+
         /// Collects subscription fees.
         ///
         /// # Returns
