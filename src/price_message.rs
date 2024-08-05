@@ -69,7 +69,7 @@ mod price_message_tests {
     #[test]
     pub fn test_to_string() {
         let price_message = PriceMessage {
-            market_id: "TEST:MARKET",
+            market_id: "TEST:MARKET".to_string(),
             price: dec!(1000.234),
             nonce: 1,
             created_at: 1230,

@@ -14,7 +14,10 @@ impl OracleRequestMessage {
     pub fn to_string(&self) -> String {
         return format!(
             "{}##{}##{}##{}",
-            self.market_id, self.nonce, self.public_key_bls, self.address
+            self.market_id, 
+            self.nonce, 
+            self.public_key_bls, 
+            self.address
         );
     }
 }
