@@ -1,13 +1,19 @@
 CALL_METHOD
-    Address("account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma")
+    Address("account_tdx_2_12yjryy5c5sk8e73apc8a3uazpar65deeztujsr7ftlfjqnu2ksusaa")
     "lock_fee"
     Decimal("5000")
 ;
 CALL_FUNCTION
-    Address("package_tdx_2_1p46vvshwy0x9wzmxp894h4p765g2y7qh62vxul0r504dkqyd70kffx")
+    Address("package_tdx_2_1p46fjy7gd0z042nen0krwczjauqz63wqn9m55cxlxpa98zpu9920r2")
     "MorpherOracle"
     "instantiate"
     "a7e75af9dd4d868a41ad2f5a5b021d653e31084261724fb40ae2f1b1c31c778d3b9464502d599cf6720723ec5c68b59d"
+    Address("account_tdx_2_12xmevme9ujzqe3yuyq37ampaa2dw633luw8446gumfycltqe5qty66")
+;
+CALL_FUNCTION
+    Address("package_tdx_2_1p46fjy7gd0z042nen0krwczjauqz63wqn9m55cxlxpa98zpu9920r2")
+    "MorpherOracleSubscription"
+    "instantiate"
     Decimal("1000")
     Address("account_tdx_2_12xmevme9ujzqe3yuyq37ampaa2dw633luw8446gumfycltqe5qty66")
 ;

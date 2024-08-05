@@ -70,15 +70,15 @@ impl FromStr for OracleRequestMessage {
 mod price_message_tests {
     use scrypto::prelude::*;
 
-    use crate::price_message::OracleRequestMessage;
+    use crate::oracle_request_message::OracleRequestMessage;
 
     #[test]
     pub fn test_to_string() {
         let oracle_request_message = OracleRequestMessage {
-            market_id: "TEST:MARKET",
+            market_id: "TEST:MARKET".to_string(),
             nonce: 1,
-            public_key_bls: "abcTEST",
-            address: "defTEST"
+            public_key_bls: "abcTEST".to_string(),
+            address: "defTEST".to_string()
         };
 
         assert_eq!(oracle_request_message.to_string(), "TEST:MARKET##1##abcTEST#defTEST");
