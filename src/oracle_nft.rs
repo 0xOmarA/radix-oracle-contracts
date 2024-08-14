@@ -30,6 +30,7 @@ mod morpher_oracle_subscription {
             new_subscription => PUBLIC;
             renew_subscription => PUBLIC;
             collect_subscription_fees => restrict_to: [admin];
+            set_subscription_price => restrict_to: [admin];
         }
     }
 
@@ -73,8 +74,8 @@ mod morpher_oracle_subscription {
                     metadata_locker_updater => rule!(deny_all);
                     },
                     init {
-                            "name" => "Oracle admin badge".to_string(), locked;
-                            "description" => "Controls the morpher oracle.", locked;
+                            "name" => "Oracle Subscription NFT Admin Badge".to_string(), locked;
+                            "description" => "Controls the morpher oracle subscription.", locked;
                         }))
                 .mint_initial_supply(1);
 
@@ -171,6 +172,16 @@ mod morpher_oracle_subscription {
                 "authorized_pub_key",
                 new_public_key.to_string(),
             );
+        }
+
+        /**
+         * Sets the subscription price
+         */
+        pub fn set_subscription_price(
+            &mut self,
+            new_price: Decimal
+        ) {
+            self.monthly_subscription_fee = new_price;
         }
 
         /// Creates a new subscription.
