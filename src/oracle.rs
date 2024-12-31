@@ -33,7 +33,6 @@ mod morpher_oracle {
             authorized_public_key: String,
             dapp_definition: ComponentAddress,
         ) -> (Global<MorpherOracle>, FungibleBucket) {
-
             // Creates the admin badge resource that can change the Oracles pub key.
             // This admin badge cannot be minted or burnt and all of its parameters are fixed.
             let admin_badge = ResourceBuilder::new_fungible(OwnerRole::None)
